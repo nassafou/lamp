@@ -1,0 +1,12 @@
+---
+- name: "Table count"
+  hosts: lamp
+  gather_facts: no
+  tasks:
+    - name: "Retrive table count "
+      mysql_request:
+        db_name: "wordpress"
+        request: "{{lookup('file', 'test.sql')}}"
+#      register: results
+    - debug: var=mysql_results
+

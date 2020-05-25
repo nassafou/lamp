@@ -1,0 +1,10 @@
+
+# tasks file for playbooks/roles/wordpress
+- name: "install packages"
+  include: install_packages.yml
+
+- name: "install db"
+  include: install_db.yml
+
+- name: "install wordpress"
+  include: install_wordpress.yml

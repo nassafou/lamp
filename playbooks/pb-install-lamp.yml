@@ -1,0 +1,6 @@
+---
+- name: "Install lamp"
+  hosts: lamp
+#  remote-user: vagrant
+  roles:
+    - role: wordpress

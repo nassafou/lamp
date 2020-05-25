@@ -1,0 +1,35 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from ansible.module_utils.basic import AnsibleModule
+import MySQLdb
+
+def main():
+    module = AnsibleModule( 
+       argument_spec=dict( 
+          db_name     = dict(required=True, type='str'),
+          request     = dict(required=True, type='str'),
+       )
+    )
+    # Retrieving options value
+    db_name  = module.params.get('db_name')
+    request  = module.params.get('request')
+    # connect to your database
+    db = MySQLdb.connect(db=db_name)
+    # Get a cursor, execte your request then close connection
+    cur = db.cursor()
+    cur.execute(request)
+    results = cur.fetchall()
+    db.close()
+    # Retern result
+    module.exit_json(
+      changed=False,
+      ansible_facts=dict(
+      mysql_results=results
+      )
+    )
+
+
+if __name__ == "__main__":
+    main()
+

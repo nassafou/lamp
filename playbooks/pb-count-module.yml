@@ -1,0 +1,11 @@
+---
+- name: "Table count"
+  hosts: lamp
+  gather_facts: no
+  tasks: 
+    - name: "launch mysql"
+      shell: mysql wordpress < /tmp/test.sql
+      register: mysql
+    - name: "Table count"
+      debug:
+        var: mysql.stdout_lines[-1]
