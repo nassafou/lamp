@@ -2,16 +2,16 @@
 - name: "mediawiki directory"
   file:
     path: "{{ mediawiki_directory }}"
-    owner: "root"
-    group: "root"
+    owner: "bob"
+    group: "bob"
     state: directory
 
 - name: "uncompress mediawiki archive"
   unarchive:
     src: "{{ mediawiki_archive_url }}"
     dest: "{{ mediawiki_directory }}"
-    owner: "root"
-    group: "root"
+    owner: "bob"
+    group: "bob"
     remote_src: yes
     # setype: httpd_sys_content_t
     # remove mediawiki-1.29.0/ from path
@@ -22,7 +22,7 @@
 
 - name: "mediawiki configuration"
   become: yes
-#  become_user: "bob"
+  become_user: "bob"
   command:
     php install.php --scriptpath /{{ mediawiki_name }}
        --dbname mediawiki --lang fr
