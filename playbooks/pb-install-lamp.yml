@@ -1,6 +1,7 @@
 ---
-- name: "Install lamp"
-  hosts: lamp
-#  remote-user: vagrant
+- name: "Install media"
+  hosts: media
+  remote_user: bob
   roles:
-    - role: wordpress
+    - media
+#    - user

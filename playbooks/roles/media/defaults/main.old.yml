@@ -2,15 +2,24 @@
 # liste for items
 packages_name:
     - apache2
+    - build-essential
+    - python-dev
+    - libmysqlclient-dev
+    - python-pip
     - mysql-server
+    - mysql-client
     - php7.0-common
     - php7.0-mysql
     - libapache2-mod-php7.0
+#    - php7.0.cli
+    - php7.0-cgi
+    - php7.0-gd
+    - php7.0-mcrypt
     - python-mysqldb
     - wget
 
 # variable mysql
-mysql_db: "wordpress"
+mysql_db: "mediawiki"
 mysql_user: "user1"
 mysql_password: "admin"
 

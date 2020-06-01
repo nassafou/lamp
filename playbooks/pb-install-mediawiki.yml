@@ -1,0 +1,8 @@
+---
+- name: "Mediawiki db configuration"
+  hosts: media
+#  remote_user: bob
+  tags: "media"
+  gather_facts: no
+  roles:
+    - role: "mediawiki/configuration"

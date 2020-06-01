@@ -1,0 +1,27 @@
+---
+# liste for items
+packages_name:
+    - apache2
+    - build-essential
+    - python-dev
+    - libmysqlclient-dev
+    - python-pip
+    - mysql-server
+    - mysql-client
+    - php7.0-common
+    - php7.0-mysql
+    - libapache2-mod-php7.0
+#    - php7.0.cli
+    - php7.0-cgi
+    - php7.0-gd
+    - php7.0-mcrypt
+    - python-mysqldb
+    - wget
+
+# variable mysql
+mediawiki_db_name: "mediawiki"
+mediawiki_db_user: "mediawiki"
+mediawiki_db_password: "mediawiki"
+
+# source wordpress
+wordpress_source: "https://wordpress.org/latest.tar.gz"

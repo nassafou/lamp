@@ -1,0 +1,14 @@
+---
+- name: "install db"
+  become: yes
+  mysql_db:
+    name: "{{ mediawiki_db_name }}"
+    state: present
+
+- name: "Create user"
+  mysql_user: 
+    name: "{{ mediawiki_db_user }}"
+    password: "{{ mediawiki_db_password }}"
+    priv: "*.*:ALL"
+  become: yes
+
